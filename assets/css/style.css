@@ -1,0 +1,29 @@
+
+
+
+.game-body{
+ 
+    max-width:700px;
+    max-height: 700px;
+    margin: auto;
+ 
+}
+
+.intro-page{
+  display: flex;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.intro-section{
+  font-size: 30px;
+  margin: 30, 150px, 30px, 150px,
+}
+.start-button{
+  display: flex;
+  justify-content: center;
+  margin-left: 250px;
+  font-size: 25px;
+  background-color: aquamarine;
+  color: black;
+}
