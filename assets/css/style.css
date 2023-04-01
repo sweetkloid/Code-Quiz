@@ -1,5 +1,7 @@
 
-
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .game-body{
  
@@ -8,7 +10,6 @@
     margin: auto;
  
 }
-
 .intro-page{
   display: flex;
   justify-content: center;
@@ -26,4 +27,7 @@
   font-size: 25px;
   background-color: aquamarine;
   color: black;
+}
+.timer-count{
+  font-size: 60px;
 }
