@@ -3,6 +3,14 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.score-time{
+
+  display: inline-flex;
+}
+
+.highscores{
+  font-size: 35px;
+}
 .game-body{
  
     max-width:700px;
@@ -16,7 +24,7 @@ body{
   margin-left: 30px;
 }
 
-.intro-section{
+#intro-section{
   font-size: 30px;
   margin: 30, 150px, 30px, 150px,
 }
@@ -25,9 +33,14 @@ body{
   justify-content: center;
   margin-left: 250px;
   font-size: 25px;
-  background-color: aquamarine;
+  background-color: oldlace;
   color: black;
 }
 .timer-count{
-  font-size: 60px;
+  margin-left: 900px;
+  font-size: 55px;
+}
+
+.button{
+  border: 6px solid black;
 }

@@ -1,12 +1,23 @@
-var introSection = document.querySelector(".intor-section");
+var introSection = document.querySelector("#intro-section");
 var startButton= document.querySelector(".start-button");
 var timerCount= document.querySelector(".timer-count");
 var questions= document.querySelector(".questions");
 var secondsLeft = 85;
 
+
 startButton.addEventListener("click", function(event) {
   var element=event.target;
-  if(element.matches("button")){
+   if (element.matches(".intro-section", ".start-button")){
+    var state = element.getAttribute ("data-state");
+   } if (state ==="view") {
+      element.textContent="";
+      element.setAttribute("data-state", "hidden");
+   } //else if (state==="hidden") {
+  //   element.setAttribute("data-state", "view");
+  // }
+console.log(element);
+
+if(element.matches(".start-button")){
     function setTime() {
     console.log("Starting timer.");
     var timerInterval = setInterval(function() {
@@ -17,11 +28,15 @@ startButton.addEventListener("click", function(event) {
     }
 
   }, 1000);
-}
-setTime();
+  
 
 }
+ setTime();
+
+}
+
 });
+
 
 
 var questionsStorage=[
