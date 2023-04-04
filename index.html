@@ -14,39 +14,34 @@
   <h2 class=" highscores">
     Highscores
   </h2>
-  <div class="timer-count">85</div>
+  <div class="timer-count">75</div>
 </header>
 
   <main class="game-body">  
    
-   <div class="start-button" data-state= "view" >
-     <section class="intro-section" data-state= "view"> 
+  
+    <section id="intro-section"> 
       <h1 class="intro-page">
         Code Quiz Challenge</h1>
       <p>
         ✨ Answer the questions as quick as possible. If you guess wrong 10 seconds will be taken off of your total time. The time left at the end will be your score! Good luck! ✨
       </p>
-      
-      <h2>Start Quiz </h2>
+    
+      <button id="start-button" onclick="toggleSection()"> Quiz Start</button>
      </section>  
+    
+     <section>
+      <div  id="questions">
+        <div id="questions-box"></div>
+        <div class="answer-container">
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+        <button class="answer"></button>
+      </div>
     </div>
-   
-   
-     
-    <section class="quesions">
-      <div id="q1" data-state="hidden">
-        <h1>question1</h1>
       </div>
-      <div id="q2" data-state="hidden">
-        <h1>question2</h1>
-      </div>
-      <div id="q3" data-state="hidden">
-        <h1>question3</h1>
-      </div>
-      <div id="q4" data-state="hidden">
-        <h1>question4</h1>
-      </div>
-    </section>
+     </section>
   </main>
   <script src="./assets/js/script.js"></script>
 </body>
