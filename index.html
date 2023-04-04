@@ -11,9 +11,7 @@
 <body>
 
 <header class="score-time">
-  <h2 class=" highscores">
-    Highscores
-  </h2>
+  <a class=" highscores" href="highscores.html">HighScore page</a>
   <div class="timer-count">75</div>
 </header>
 
@@ -28,12 +26,12 @@
       </p>
     
       <button id="start-button" onclick="toggleSection()"> Quiz Start</button>
-     </section>  
+    </section>  
     
      <section>
       <div  id="questions">
         <div id="questions-box"></div>
-        <div class="answer-container">
+        <div class="answer-box">
         <button class="answer"></button>
         <button class="answer"></button>
         <button class="answer"></button>
@@ -41,6 +39,17 @@
       </div>
     </div>
       </div>
+     </section>
+
+     <section id="outro-section" class="hide">
+      <div class="scoreboard">
+        <h2 id="userscore">Your Score is: <span>40</span></h2>  
+      </div>
+      <form id= "final-form">
+        <label for="username" class="form-label">Enter Initials</label>
+        <input id="text" name="" id="username">
+        <button id="submit">Submit</button>
+      </form>
      </section>
   </main>
   <script src="./assets/js/script.js"></script>

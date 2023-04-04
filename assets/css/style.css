@@ -1,4 +1,4 @@
-
+/* Main HTML css to follow */
 body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -65,12 +65,51 @@ button.answer {
   background-color: oldlace;
   display: block;
 }
-
+/* button.answer.correct{
+  background-color: purple;
+}
+button.answer.wrong{
+  background-color: red;
+} */
 #questions,
 #questions-box {
   display: block;
 }
-/* 
-#question, .answer-container{
+
+#questions, .answer-container{
   display: none; 
-}  */
+} 
+/* Highscore html css to follow */
+
+.score-page{
+  font-size: 54px;
+  display: block;
+  text-align: center;
+}
+.table-Section{
+  display: flex;
+ 
+}
+.score, .initials{
+  font-size: 45px;
+  display: flex;
+ text-align: center;
+ margin-left: 500px;
+}
+.button{
+  margin-top: 50px;
+  margin-left: 500px;
+  
+}
+#start-over, #clear-scores{
+  font-size: 20px;
+  display: flex-inline;
+  justify-content: space-around;
+ margin-left: 15px;
+  background-color: oldlace;
+  color: black;
+}
+
+.hide {
+  display: none;
+}
