@@ -17,7 +17,7 @@
 
   <main class="game-body">  
    
-  
+    <!-- first page users see when they open the tab or hit try again -->
     <section id="intro-section"> 
       <h1 class="intro-page">
         Code Quiz Challenge</h1>
@@ -27,7 +27,7 @@
     
       <button id="start-button" onclick="toggleSection()"> Quiz Start</button>
     </section>  
-    
+    <!-- this is what the object in js will use to rotate through the questions and answers -->
      <section>
       <div  id="questions">
         <div id="questions-box"></div>
@@ -38,10 +38,10 @@
         <button class="answer"></button>
       </div>
     </div>
-    <div id="message-box"></div>
+    <div id="message-box"></div> <!--give us the ability to add dialog on click of answers-->
       </div >
      </section>
-
+     <!-- the page after the quesions -->
      <section id="outro-section" class="hide">
       <div class="scoreboard">
         <h2 id="userscore">Your Score is:</h2>  
@@ -53,6 +53,7 @@
       </form>
      </section>
   </main>
+  <!-- link to javascript -->
   <script src="./assets/js/script.js"></script>
 </body>
 </html>

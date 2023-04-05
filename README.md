@@ -9,7 +9,7 @@ Github page: [Github](https://github.com/sweetkloid/Code-Quiz)
 
 webpage demo: [webpage](assets/images/Code%20Quiz.webm)
 
-webpage screen shot:![Alt text](assets/images/Screenshot%202023-04-04%20223053.png)
+webpage screen shot:![webpage screem shot](assets/images/Screenshot%202023-04-04%20223053.png)
 
 ## Credits
 Thanks to the Instructors, TA's, and coworkers for helping me build this project.

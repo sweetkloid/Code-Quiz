@@ -29,6 +29,7 @@ body{
   font-size: 30px;
   margin: 30, 150px, 30px, 150px,
 }
+/* adding decorations to the button */
 #start-button{
   display: flex;
   justify-content: center;
@@ -38,10 +39,12 @@ body{
   color: black;
 }
 #timer-count{
-  margin-left: 900px;
+  display: flex;
+ flex-direction: column;
+  margin-left: 700px;
   font-size: 55px;
 }
-
+/* getting the quetions to line up correctly */
 #questions {
   display: flex;
   flex-direction: column;
@@ -53,7 +56,7 @@ body{
 .question-container {
   text-align: center;
 }
-
+/* making sure the table is presentable */
 .answer-container {
   flex-direction: column;
   align-items: center;
@@ -68,21 +71,25 @@ body{
   margin-left: 150px;
   margin-bottom: 10px;
 }
+/* making sure the initial box is large to fit the page */
 #username{
   width: 100%;
   padding: 10px;
   border: 4px solid rgb(55, 235, 232);
   margin: 30px 20px 30px 0px;
 }
+
 button.answer {
+  display: flex;
+  align-items: column;
   margin: 10px;
   font-size: 40px;
   background-color: oldlace;
   display: block;
 }
 #message-box{
-  font-size: 20px;
-  color: blue;
+  font-size: 25px;
+  color: rgb(184, 184, 239);
 }
 #userscore{
  
@@ -96,6 +103,7 @@ button.answer {
   background-color: oldlace;
   display: block;
 }
+/* adding hovers for decorations */
 button.answer:hover, #start-over:hover, #clear-scores:hover, #start-button:hover, #submit:hover{
   background-color: rgb(218, 238, 239);
   color: rgb(35, 112, 180);
@@ -116,6 +124,7 @@ button.answer:hover, #start-over:hover, #clear-scores:hover, #start-button:hover
   display: block;
   text-align: center;
 }
+/* adding decorations to answer buttons */
 .table {
   display: flex;
   flex-direction: column;

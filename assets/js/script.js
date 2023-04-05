@@ -1,4 +1,4 @@
-
+// crabbing variable from html so we can manipulate them in js
 var introSection = document.querySelector("#intro-section");
 var startButton = document.querySelector("#start-button");
 var timerCount = document.querySelector("#timer-count");
@@ -9,7 +9,7 @@ var questionBox=document.querySelector("#questions-box");
 var secondsLeft = 60;
 
 var timerInterval;
-
+// this is how we create a working timer
 function setTime() {
   if (!timerInterval) {
     console.log("Starting timer.");
@@ -22,24 +22,25 @@ function setTime() {
     }, 1000);
   }
 }
- console.log(setTime);
+ console.log(setTime); //making sure we run correctly
+//  this is making the start button work with the rest of the program
 function toggleSection() {
   var startButton = document.getElementById("start-button");
-  startButton.removeEventListener("click", toggleSection);
-  startButton.addEventListener("click", function() {
-    startButton.style.display = "none";
+  startButton.removeEventListener("click", toggleSection); //removing the start button on click
+  startButton.addEventListener("click", function() { //startomg the next functions
+    startButton.style.display = "none"; //hiding the button with js to css
     var quizBox = document.getElementById("questions");
-    quizBox.style.display = "block";
+    quizBox.style.display = "block"; //startomg the questions with manipulation to css
     introSection.style.display = "none";
     hideAnswerButtons();
     displayQuestion();
-    setTime();    
-    
+    setTime();    //running the function
+     
   });
 
 }
 
-
+//creating functions so we can manipulate what we show and hide as we rotate between questions
   function hideAnswerButtons() {
     var answerButtons = document.querySelectorAll("#questions button.answer"); 
     answerButtons.forEach(function(button) {
@@ -47,13 +48,14 @@ function toggleSection() {
     });
   }
 
-
+//same as above but revers
 function showAnswerButtons() {
   var answerButtons = document.querySelectorAll("#questions button.answer");
   answerButtons.forEach(function(button) {
     button.style.display = "block";
   });
 }
+//this is how we pull from our object and display the questions and answers form the objects arrays
 function displayQuestion() {
   var question = questionStorage[currentQuestionIndex];
   var questionText = document.getElementById("questions-box");
@@ -62,7 +64,7 @@ function displayQuestion() {
   var answerButtons = document.querySelectorAll("#questions button.answer");
   questionText.textContent = question.question;
   console.log(questionStorage);
-
+//rotating between arrays
   for (var i = 0; i < answerButtons.length; i++) {
     var button = answerButtons[i];
     button.textContent = question.answers[i];
@@ -70,11 +72,21 @@ function displayQuestion() {
     button.style.display = "inline-block";
     button.addEventListener("click", handleAnswerClick);
   }
-  
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questionStorage.length) {
+    setTimeout(function() {
+      hideAnswerButtons();
+      displayQuestion();
+    }, 1000);
+  } else {
+    console.log("Quiz finished");
+    clearInterval(timerInterval);
+    endGame();
+}
 }
 
  score=0;
-
+//what happens when the user interacts with the questions buttons
 function handleAnswerClick(event) {
   var answerIndex = event.target.dataset.answerIndex;
   var question = questionStorage[currentQuestionIndex];
@@ -88,7 +100,7 @@ function handleAnswerClick(event) {
   } else {
     console.log("Wrong!");
     questionBox.textContent= "Wrong!";
-    secondsLeft -=5; 
+    secondsLeft -=5; //time deduction for wrong answers
     secondsLeft= Math.max(0, secondsLeft)
     var messageBox = document.querySelector("#message-box");
     messageBox.textContent = "Wrong!";
@@ -100,13 +112,13 @@ function handleAnswerClick(event) {
   if (currentQuestionIndex < questionStorage.length) {
     displayQuestion();
   } else {
-    console.log("Quiz finished");
+    console.log("Quiz finished"); //making sure our code loads
     clearInterval(timerInterval);
-    endGame();
+    endGame(); //running the functions
   }
 }
 }
-
+//object that holds our arrays that have their own arrays that we pull through
 var currentQuestionIndex = 0;
 var questionStorage = [
   {
@@ -132,13 +144,15 @@ var questionStorage = [
 ];
 
 
-
+//taking the results and moving into the outro screen that then leads us to the highscore page
 var initials = '';
 
 function saveScore(initials, score) {
+  //reading the highscores from localstorage
   var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   var newScore = { initials: initials, score: score };
   highScores.push(newScore);
+  //taking the answers and converting them to localstorage
   localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 function endGame() {
@@ -148,16 +162,16 @@ function endGame() {
   // Calculate Score
   var score = secondsLeft;
   var outroSections= document.getElementById("outro-section");
-  outroSections.style.display="block";
+  outroSections.style.display="block"; //making sure we can see the new page
   var usersScore= document.getElementById ("userscore");
-  usersScore.textContent= "Your score is: " + score;
+  usersScore.textContent= "Your score is: " + score; //adding message to score
   var finalForm=document.getElementById("final-form");
   finalForm.addEventListener("submit", function (event){
     event.preventDefault();
     var initialsInput=document.getElementById("username");
-    initials=initialsInput.value;
+    initials=initialsInput.value; //moving the values into their appropriate labels
     saveScore(initials, score);
-    window.location.href="highscores.html";
+    window.location.href="highscores.html"; //moving us to the highscore page
    
   });
    
