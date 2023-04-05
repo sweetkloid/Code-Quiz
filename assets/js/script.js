@@ -56,7 +56,17 @@ function showAnswerButtons() {
   });
 }
 //this is how we pull from our object and display the questions and answers form the objects arrays
-function displayQuestion() {
+function displayNextQuestion(){
+currentQuestionIndex++;
+if (currentQuestionIndex < questionStorage.length) {
+  setTimeout(displayQuestion, 1000); // delay before displaying next question
+} else {
+  console.log("Quiz finished");
+  clearInterval(timerInterval);
+  endGame();
+}
+}
+    function displayQuestion() {
   var question = questionStorage[currentQuestionIndex];
   var questionText = document.getElementById("questions-box");
   console.log(questionText);
@@ -72,18 +82,9 @@ function displayQuestion() {
     button.style.display = "inline-block";
     button.addEventListener("click", handleAnswerClick);
   }
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questionStorage.length) {
-    setTimeout(function() {
-      hideAnswerButtons();
-      displayQuestion();
-    }, 1000);
-  } else {
-    console.log("Quiz finished");
-    clearInterval(timerInterval);
-    endGame();
+  
 }
-}
+
 
  score=0;
 //what happens when the user interacts with the questions buttons
