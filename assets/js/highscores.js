@@ -1,7 +1,7 @@
 
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-var tableBody = document.querySelector("#table-section");
+var tableBody = document.querySelector(".table-section");
 
 for (var i = 0; i < highScores.length; i++) {
   var score = highScores[i].score;

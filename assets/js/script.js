@@ -1,11 +1,11 @@
 
 var introSection = document.querySelector("#intro-section");
 var startButton = document.querySelector("#start-button");
-var timerCount = document.querySelector(".timer-count");
+var timerCount = document.querySelector("#timer-count");
 
 
 
-var secondsLeft = 75;
+var secondsLeft = 60;
 
 var timerInterval;
 
@@ -71,7 +71,7 @@ function displayQuestion() {
   }
 }
 
-score=0;
+ score=0;
 
 function handleAnswerClick(event) {
   var answerIndex = event.target.dataset.answerIndex;
@@ -79,19 +79,25 @@ function handleAnswerClick(event) {
   if (question.answers[answerIndex] === question.correct) {
     console.log("Correct!");
     // event.target.style.backgroundColor = "green";
-    score++;
+    secondsLeft +=10;
   } else {
     console.log("Wrong!");
-    // event.target.style.backgroundColor = "red";    
-    secondsLeft -= 10;
-  }
+    // event.target.style.backgroundColor = "red";
+    secondsLeft -=10; 
+    secondsLeft= Math.max(0, secondsLeft);
+  } if (secondsLeft ==0){
+    clearInterval(timerInterval);
+    endGame();
+  }else{
   currentQuestionIndex++;
   if (currentQuestionIndex < questionStorage.length) {
     displayQuestion();
   } else {
     console.log("Quiz finished");
+    clearInterval(timerInterval);
     endGame();
   }
+}
 }
 
 var currentQuestionIndex = 0;
@@ -119,11 +125,20 @@ var questionStorage = [
 ];
 
 
+var initials = '';
+
+function saveScore(initials, score) {
+  var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  var newScore = { initials: initials, score: score };
+  highScores.push(newScore);
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
 function endGame() {
 
   // IF timer is not finished ---> End timer
   clearInterval(timerInterval);
   // Calculate Score
+  var score = secondsLeft;
   var outroSections= document.getElementById("outro-section");
   outroSections.style.display="block";
   var usersScore= document.getElementById ("userscore");
@@ -131,15 +146,13 @@ function endGame() {
   var finalForm=document.getElementById("final-form");
   finalForm.addEventListener("submit", function (event){
     event.preventDefault();
-    var initialsInput=document.getElementById("text");
-    var initials=initialsInput.value;
-    saveScore(initials,score);
-    showHighScores();
+    var initialsInput=document.getElementById("username");
+    initials=initialsInput.value;
+    saveScore(initials, score);
+    window.location.href="highscores.html";
+   
   });
-  var highScores = JSON.parse(localStorage.getItem("highScores")) || []; 
-  highScores.push({ initials: initials, score: score});
-  localStorage.setItem("highscores", JSON.stringify(highScores));
-   window.location.href="highscores.html";
+   
   // Hide our question section
   var quizBox = document.getElementById("questions");
   //quizBox.classList.add('hide');
