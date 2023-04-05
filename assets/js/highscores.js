@@ -6,6 +6,10 @@ var tableBody = document.querySelector(".table-section");
 for (var i = 0; i < highScores.length; i++) {
   var score = highScores[i].score;
   var initials = highScores[i].initials;
+  
+  if (!score || !initials) {
+    continue; // skip this object
+  }
 
   var row = document.createElement("tr");
 

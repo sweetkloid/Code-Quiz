@@ -86,20 +86,30 @@ button.answer.wrong{
   display: block;
   text-align: center;
 }
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .table-Section{
-  display: flex;
- 
+  font-size: 35px;
+  background-color: #f9f9f9;
+  border: 5px solid #ddd;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
-.score, .initials{
-  font-size: 45px;
-  display: flex;
- text-align: center;
- margin-left: 500px;
+
+.table-section th,
+.table-section td {
+  font-size: 35px;
+  padding: 20px;
+  text-align: center;
+  border: 3px solid #ddd;
 }
+
+
 .button{
-  margin-top: 50px;
-  margin-left: 500px;
-  
+ margin-top: 50px;
 }
 #start-over, #clear-scores{
   font-size: 20px;
