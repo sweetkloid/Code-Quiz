@@ -55,18 +55,9 @@ function showAnswerButtons() {
     button.style.display = "block";
   });
 }
-//this is how we pull from our object and display the questions and answers form the objects arrays
-function displayNextQuestion(){
-currentQuestionIndex++;
-if (currentQuestionIndex < questionStorage.length) {
-  setTimeout(displayQuestion, 1000); // delay before displaying next question
-} else {
-  console.log("Quiz finished");
-  clearInterval(timerInterval);
-  endGame();
-}
-}
+
     function displayQuestion() {
+    
   var question = questionStorage[currentQuestionIndex];
   var questionText = document.getElementById("questions-box");
   console.log(questionText);
@@ -89,21 +80,28 @@ if (currentQuestionIndex < questionStorage.length) {
  score=0;
 //what happens when the user interacts with the questions buttons
 function handleAnswerClick(event) {
+    
   var answerIndex = event.target.dataset.answerIndex;
   var question = questionStorage[currentQuestionIndex];
   if (question.answers[answerIndex] === question.correct) {
     console.log("Correct!");
-    questionBox.textContent= "Correct!";
+
     score+=10;
     var messageBox = document.querySelector("#message-box");
+    setTimeout(function(){
+      messageBox.textContent="";
+    },1000);
     messageBox.textContent = "Correct!";
     console.log(questionBox);
   } else {
     console.log("Wrong!");
-    questionBox.textContent= "Wrong!";
-    secondsLeft -=5; //time deduction for wrong answers
-    secondsLeft= Math.max(0, secondsLeft)
+    secondsLeft -=10; //time deduction for wrong answers
+    secondsLeft= Math.max(0, secondsLeft);
+    timerCount.textContent = secondsLeft;
     var messageBox = document.querySelector("#message-box");
+    setTimeout(function(){
+      messageBox.textContent="";
+    },1000);
     messageBox.textContent = "Wrong!";
   } if (secondsLeft ==0){
     clearInterval(timerInterval);
@@ -111,7 +109,7 @@ function handleAnswerClick(event) {
   }else{
   currentQuestionIndex++;
   if (currentQuestionIndex < questionStorage.length) {
-    displayQuestion();
+    setTimeout(displayQuestion, 1000);
   } else {
     console.log("Quiz finished"); //making sure our code loads
     clearInterval(timerInterval);
