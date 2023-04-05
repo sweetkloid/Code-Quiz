@@ -78,7 +78,7 @@ function handleAnswerClick(event) {
   var question = questionStorage[currentQuestionIndex];
   if (question.answers[answerIndex] === question.correct) {
     console.log("Correct!");
-    secondsLeft=score;
+    score+=10;
   } else {
     console.log("Wrong!");
     secondsLeft -=10; 
@@ -141,7 +141,7 @@ function endGame() {
   var outroSections= document.getElementById("outro-section");
   outroSections.style.display="block";
   var usersScore= document.getElementById ("userscore");
-  usersScore.textContent=score;
+  usersScore.textContent= "Your score is: " + score;
   var finalForm=document.getElementById("final-form");
   finalForm.addEventListener("submit", function (event){
     event.preventDefault();
