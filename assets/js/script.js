@@ -2,6 +2,7 @@
 var introSection = document.querySelector("#intro-section");
 var startButton = document.querySelector("#start-button");
 var timerCount = document.querySelector("#timer-count");
+var questionBox=document.querySelector("#questions-box");
 
 
 
@@ -78,11 +79,18 @@ function handleAnswerClick(event) {
   var question = questionStorage[currentQuestionIndex];
   if (question.answers[answerIndex] === question.correct) {
     console.log("Correct!");
+    questionBox.textContent= "Correct!";
     score+=10;
+    var messageBox = document.querySelector("#message-box");
+    messageBox.textContent = "Correct!";
+    console.log(questionBox);
   } else {
     console.log("Wrong!");
-    secondsLeft -=10; 
-    secondsLeft= Math.max(0, secondsLeft);
+    questionBox.textContent= "Wrong!";
+    secondsLeft -=5; 
+    secondsLeft= Math.max(0, secondsLeft)
+    var messageBox = document.querySelector("#message-box");
+    messageBox.textContent = "Wrong!";
   } if (secondsLeft ==0){
     clearInterval(timerInterval);
     endGame();

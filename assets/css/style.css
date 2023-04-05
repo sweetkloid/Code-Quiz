@@ -80,7 +80,10 @@ button.answer {
   background-color: oldlace;
   display: block;
 }
-
+#message-box{
+  font-size: 20px;
+  color: blue;
+}
 #userscore{
  
   display: noen;
