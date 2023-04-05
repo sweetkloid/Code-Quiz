@@ -78,11 +78,9 @@ function handleAnswerClick(event) {
   var question = questionStorage[currentQuestionIndex];
   if (question.answers[answerIndex] === question.correct) {
     console.log("Correct!");
-    event.target.style.backgroundColor = "green";
-    secondsLeft +=10;
+    secondsLeft=score;
   } else {
     console.log("Wrong!");
-    event.target.style.backgroundColor = "red";
     secondsLeft -=10; 
     secondsLeft= Math.max(0, secondsLeft);
   } if (secondsLeft ==0){
@@ -123,6 +121,7 @@ var questionStorage = [
     correct: "#",
   }
 ];
+
 
 
 var initials = '';

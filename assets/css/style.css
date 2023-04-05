@@ -65,12 +65,11 @@ button.answer {
   background-color: oldlace;
   display: block;
 }
-/* button.answer.correct{
-  background-color: purple;
+button.answer:hover{
+  background-color: rgb(218, 238, 239);
+  color: rgb(35, 112, 180);
+  box-shadow: none;
 }
-button.answer.wrong{
-  background-color: red;
-} */
 #questions,
 #questions-box {
   display: block;
