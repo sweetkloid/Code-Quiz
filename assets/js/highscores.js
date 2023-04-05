@@ -6,7 +6,7 @@ var tableBody = document.querySelector(".table-section");
 for (var i = 0; i < highScores.length; i++) {
   var score = highScores[i].score;
   var initials = highScores[i].initials;
-  
+
   if (!score || !initials) {
     continue; // skip this object
   }
@@ -34,5 +34,12 @@ tryBtn.addEventListener('click', () => {
 // As long as there is DATA IN LOCAL STORAGE we can grab it in any VIEW
 let savedData = localStorage.getItem('highscores');
 console.log("Local Storage: ", savedData);
+
+var clearScoresBtn = document.getElementById("clear-scores");
+
+clearScoresBtn.addEventListener("click", function() {
+  localStorage.clear();
+  location.reload(); // reload the page to update the high scores table
+});
 
 

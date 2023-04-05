@@ -115,7 +115,7 @@ button.answer.wrong{
   font-size: 25px;
   display: flex-inline;
   justify-content: space-around;
- margin-left: 10px;
+  margin-left: 10px;
   background-color: oldlace;
   color: black;
 }
