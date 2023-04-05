@@ -70,6 +70,7 @@ function displayQuestion() {
     button.style.display = "inline-block";
     button.addEventListener("click", handleAnswerClick);
   }
+  
 }
 
  score=0;
