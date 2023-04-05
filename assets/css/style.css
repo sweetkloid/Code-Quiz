@@ -112,10 +112,10 @@ button.answer.wrong{
  margin-top: 50px;
 }
 #start-over, #clear-scores{
-  font-size: 20px;
+  font-size: 25px;
   display: flex-inline;
   justify-content: space-around;
- margin-left: 15px;
+ margin-left: 10px;
   background-color: oldlace;
   color: black;
 }
